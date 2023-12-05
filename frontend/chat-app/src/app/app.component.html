@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="m-4">
+    <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white msg">
+      <input class="fs-5 fw-semibold input" placeholder="enter username" [(ngModel)]="username" (click)="handleReload($event)">
+      <div class="list-group list-group-flush border-bottom scrollarea">
+        <div class="list-group-item list-group-item-action py-3 lh-tight" *ngFor="let msg of messages">
+
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="mb-1">{{msg.username}}</strong>
+          </div>
+          <div class="col-10 mb-1 small">{{msg.message}}</div>
+        </div><hr>
+      </div>
+    </div>
+    <div class="send-button">
+      <form (submit)="submit()">
+        <input class="form-control" placeholder="start typing" [value]="message"
+          (change)="message = $any($event.target).value" />
+      </form>
+    </div>
+  </div>
+</div>
